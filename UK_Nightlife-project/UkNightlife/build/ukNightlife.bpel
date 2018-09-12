@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="ukNightlife"
+    targetNamespace="http://enterprise.netbeans.org/bpel/UkNightlife/ukNightlife"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/UkNightlife/ukNightlife"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:ns0="http://www.reallymoving.com/" xmlns:sxnmp="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/NMProperty" xmlns:ns1="http://services.postcodeanywhere.co.uk/" xmlns:ns2="http://j2ee.netbeans.org/wsdl/UkNightlife/src/getNightlifeEventList" xmlns:sxxf="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions" xmlns:ns3="http://enterprise.netbeans.org/bpel/WizardCorrelationProperties" xmlns:ns4="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" xmlns:ns5="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" xmlns:ns6="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:sref="http://docs.oasis-open.org/wsbpel/2.0/CS01/serviceref">
+    <import namespace="http://j2ee.netbeans.org/wsdl/UkNightlife/src/getNightlifeEventList" location="getNightlifeEventList.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" location="ukNightlife.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" location="getCityByPostCodeProxy.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" location="getCityByPostCodeCallback.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WizardCorrelationProperties" location="WizardCorrelationProperties.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://www.reallymoving.com/" location="http://www.reallymoving.com/API/PostcodeAnywhere.asmx?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" location="PostcodeAnywhere.asmxWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="GetCityByPostCode" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" partnerLinkType="tns:getCityByPostCodeProxy" partnerRole="getCityByPostCodeProxyPortTypeRole"/>
+        <partnerLink name="Customer" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" partnerLinkType="tns:ukNightlife" myRole="getListRole"/>
+        <partnerLink name="GetCityByPostCodeCallback" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" partnerLinkType="tns:getCityByPostCodeCallback" myRole="getCityByPostCodeCallbackPortTypeRole"/>
+        <partnerLink name="GetNightlifeEventList" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/getNightlifeEventList" partnerLinkType="tns:RestOutboundWSDL" partnerRole="RestOutboundPortTypeRole"/>
+        <partnerLink name="GetCityByPostCodeLocal" xmlns:tns="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" partnerLinkType="tns:PostcodeAnywhereServiceSoapLinkType" partnerRole="PostcodeAnywhereServiceSoapRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="InvalidReplyFaultVar" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" messageType="tns:ukNightlifeOperationFault"/>
+        <variable name="GetCityByPostCodeProxyIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" messageType="tns:getCityByPostCodeProxyOperationRequest"/>
+        <variable name="GetNightlifeEventListOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/getNightlifeEventList" messageType="tns:getNightlifeEventListResponse"/>
+        <variable name="GetNightlifeEventListIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/getNightlifeEventList" messageType="tns:getNightlifeEventListRequest"/>
+        <variable name="GetListOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" messageType="tns:ukNightlifeOperationResponse"/>
+        <variable name="GetListIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" messageType="tns:ukNightlifeOperationRequest"/>
+    </variables>
+    <correlationSets>
+        <correlationSet name="wzrd_set_InvokeGetCityByPostCode_OnMessage_Pick1_getCityByPostCodeCallbackOperation" properties="ns3:wzrd_prop_string_string"/>
+    </correlationSets>
+    <faultHandlers>
+        <catch faultName="ns6:invalidReply">
+            <sequence name="Sequence1">
+                <assign name="AssignInvalidReplyFault">
+                    <copy>
+                        <from>'Invalid_reply_fault'</from>
+                        <to variable="InvalidReplyFaultVar" part="ukNightlifeFault"/>
+                    </copy>
+                </assign>
+                <reply name="ReplyInvalidReplyFault" partnerLink="Customer" operation="getList" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" portType="tns:Customer" faultName="tns:fault1" variable="InvalidReplyFaultVar"/>
+            </sequence>
+        </catch>
+    </faultHandlers>
+    <sequence>
+        <receive name="ReceiveGetList" createInstance="yes" partnerLink="Customer" operation="getList" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" portType="tns:Customer" variable="GetListIn"/>
+        <assign name="AssignInput">
+            
+             <copy>
+                <from>'Qt5pBPBwKZrK7gdR'</from>
+                <to variable="GetNightlifeEventListIn" sxnmp:nmProperty="org.glassfish.openesb.rest.params.app_key"/>
+            </copy>
+            <copy>
+                <from>string($GetListIn.postCode)</from>
+                <to variable="GetNightlifeEventListIn" sxnmp:nmProperty="org.glassfish.openesb.rest.params.location"/>
+            </copy>
+            <copy>
+                <from>string($GetListIn.searchRadius)</from>
+                <to variable="GetNightlifeEventListIn" sxnmp:nmProperty="org.glassfish.openesb.rest.params.within"/>
+            </copy>
+            <copy>
+                <from>'km'</from>
+                <to variable="GetNightlifeEventListIn" sxnmp:nmProperty="org.glassfish.openesb.rest.params.units"/>
+            </copy>
+            <copy>
+            <from>'singles_social'</from>
+                <to variable="GetNightlifeEventListIn" sxnmp:nmProperty="org.glassfish.openesb.rest.params.category"/>
+            </copy>
+            <copy>
+            <from>'this week'</from>
+                <to variable="GetNightlifeEventListIn" sxnmp:nmProperty="org.glassfish.openesb.rest.params.date"/>
+            </copy>
+            <copy>
+                <from variable="GetListIn" part="postCode"/>
+                <to variable="GetCityByPostCodeProxyIn" part="postCode"/>
+            </copy>
+            <copy>
+                <from>sxxf:getBPId()</from>
+                <to variable="GetCityByPostCodeProxyIn" part="ID"/>
+            </copy>
+        </assign>
+        <flow name="FlowGetCityByPostCodeAndGetNightlifeEventList">
+            <scope name="ScopeGetCityByPostCode">
+                <variables>
+                    <variable name="FindByPostcodeOut" messageType="ns0:FindByPostcodeSoapOut"/>
+                    <variable name="FindByPostcodeIn" messageType="ns0:FindByPostcodeSoapIn"/>
+                    <variable name="GetCityByPostCodeCallbackOperationIn" messageType="ns5:getCityByPostCodeCallbackOperationRequest"/>
+                    </variables>
+                <faultHandlers>
+                    <catch faultName="ns6:missingReply">
+                        <sequence name="SequenceGetCityByPostCodeLocal">
+                            <assign name="AssignInputGetCityByPostCodeLocal">
+                                <copy>
+                                    <from variable="GetListIn" part="postCode"/>
+                                    <to>$FindByPostcodeIn.parameters/ns0:postcode</to>
+                                </copy>
+                                <copy>
+                                    <from>
+                                        <literal>
+                                          <sref:service-ref>
+                                            <wsa:EndpointReference>
+                                                    <wsa:Address>
+                                                        http://localhost:9080/GetCityByPostCodeLocalService/GetCityByPostCodeLocalPort
+                                                    </wsa:Address>
+                                                    <wsa:ServiceName PortName="GetCityByPostCodeLocalPort" xmlns:location="http://www.reallymoving.com/">
+                                                        location:GetCityByPostCodeLocalService
+                                                    </wsa:ServiceName>
+                                            </wsa:EndpointReference>
+                                          </sref:service-ref>
+                                        </literal>
+                                    </from>
+                                    <to partnerLink="GetCityByPostCodeLocal"/>
+                                </copy>
+                            </assign>
+                            <invoke name="InvokeGetCityByPostCodeLocal" partnerLink="GetCityByPostCodeLocal" operation="FindByPostcode" portType="ns0:PostcodeAnywhereServiceSoap" inputVariable="FindByPostcodeIn" outputVariable="FindByPostcodeOut"/>
+                            <assign name="AssignPartialOutput">
+                                <copy>
+                                    <from>$FindByPostcodeOut.parameters/ns0:FindByPostcodeResult/ns0:PostcodeAnywhere_Interactive_FindByPostcode_v1_00_Results/ns1:Place</from>
+                                    <to variable="GetListOut" part="city"/>
+                                </copy>
+                            </assign>
+                        </sequence>
+                    </catch>
+                </faultHandlers>
+                <sequence name="SequenceGetCityByPostCode">
+                        <invoke name="InvokeGetCityByPostCode" partnerLink="GetCityByPostCode" operation="getCityByPostCodeProxyOperation" portType="ns4:getCityByPostCodeProxyPortType" inputVariable="GetCityByPostCodeProxyIn">
+                            <correlations>
+                                    <correlation set="wzrd_set_InvokeGetCityByPostCode_OnMessage_Pick1_getCityByPostCodeCallbackOperation" initiate="yes"/>
+                                </correlations>
+                        </invoke>
+                            <pick name="PickGetCityByPostCode">
+                            <onMessage partnerLink="GetCityByPostCodeCallback" operation="getCityByPostCodeCallbackOperation" portType="ns5:getCityByPostCodeCallbackPortType" variable="GetCityByPostCodeCallbackOperationIn">
+                                    <correlations>
+                                            <correlation set="wzrd_set_InvokeGetCityByPostCode_OnMessage_Pick1_getCityByPostCodeCallbackOperation" initiate="no"/>
+                                        </correlations>
+                                <if name="IfInvalidReplyFault">
+                                    <condition>string($GetCityByPostCodeCallbackOperationIn.city) = '-'</condition>
+                                    <throw name="ThrowInvalidReplyFault" faultName="ns6:invalidReply"/>
+                                    <else>
+                                            <assign name="AssignPartialOutput1">
+                                                        <copy>
+                                                            <from variable="GetCityByPostCodeCallbackOperationIn" part="ID"/>
+                                                                <to variable="GetCityByPostCodeCallbackOperationIn" part="ID"/>
+                                                        </copy>
+                                                <copy>
+                                                    <from variable="GetCityByPostCodeCallbackOperationIn" part="city"/>
+                                                    <to variable="GetListOut" part="city"/>
+                                                </copy>
+                                            </assign>
+                                        </else>
+                                </if>
+                            </onMessage>
+                                <onAlarm>
+                                    <for>'P0Y0M0DT0H0M5.0S'</for>
+                                    <throw name="ThrowTimeoutFault" faultName="ns6:missingReply"/>
+                                </onAlarm>
+                            </pick>
+                    </sequence>
+            </scope>
+            <invoke name="InvokeGetNightlifeEventList" partnerLink="GetNightlifeEventList" operation="getNightlifeEventList" portType="ns2:RestOutboundPortType" inputVariable="GetNightlifeEventListIn" outputVariable="GetNightlifeEventListOut"/>
+        </flow>
+        <assign name="AssignOutput">
+            
+            <copy>
+                <from variable="GetNightlifeEventListOut" part="nightlifeEventList"/>
+                <to variable="GetListOut" part="nightlifeEventList"/>
+            </copy>
+        </assign>
+        <reply name="ReplyGetList" partnerLink="Customer" operation="getList" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" portType="tns:Customer" variable="GetListOut"/>
+    </sequence>
+</process>

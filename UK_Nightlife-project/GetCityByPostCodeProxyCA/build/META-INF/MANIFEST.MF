@@ -1,0 +1,4 @@
+Bundle-Name: GetCityByPostCodeProxyCA
+Bundle-SymbolicName: GetCityByPostCodeProxyCA
+Bundle-ManifestVersion: 2
+Bundle-Version: 1.0.0

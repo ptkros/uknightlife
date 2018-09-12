@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="getCityByPostCodeLocal"
+    targetNamespace="http://enterprise.netbeans.org/bpel/GetCityByPostCodeLocal/getCityByPostCodeLocal"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/GetCityByPostCodeLocal/getCityByPostCodeLocal"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:ns0="http://www.reallymoving.com/" xmlns:ns1="http://services.postcodeanywhere.co.uk/">
+    <import namespace="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" location="PostcodeAnywhere.asmxWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://www.reallymoving.com/" location="http://www.reallymoving.com/API/PostcodeAnywhere.asmx?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="Customer" xmlns:tns="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" partnerLinkType="tns:PostcodeAnywhereServiceSoapLinkType" myRole="PostcodeAnywhereServiceSoapRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="FindByPostcodeOut" messageType="ns0:FindByPostcodeSoapOut"/>
+        <variable name="FindByPostcodeIn" messageType="ns0:FindByPostcodeSoapIn"/>
+    </variables>
+    <sequence name="SequenceGetCityByPostCodeLocal">
+        <receive name="ReceiveFindByPostcode" createInstance="yes" partnerLink="Customer" operation="FindByPostcode" portType="ns0:PostcodeAnywhereServiceSoap" variable="FindByPostcodeIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeLocal/src/getCityByPostCodeLocal"/>
+        <assign name="AssignFindByPostcode">
+           
+            <copy>
+                <from>'id'</from>
+                <to>$FindByPostcodeOut.parameters/ns0:FindByPostcodeResult/ns0:PostcodeAnywhere_Interactive_FindByPostcode_v1_00_Results/ns1:Id</to>
+            </copy>
+            <copy>
+                <from>'strAddr'</from>
+                <to>$FindByPostcodeOut.parameters/ns0:FindByPostcodeResult/ns0:PostcodeAnywhere_Interactive_FindByPostcode_v1_00_Results/ns1:StreetAddress</to>
+            </copy>
+            <copy>
+                <from>'Timeout_fault'</from>
+                <to>$FindByPostcodeOut.parameters/ns0:FindByPostcodeResult/ns0:PostcodeAnywhere_Interactive_FindByPostcode_v1_00_Results/ns1:Place</to>
+            </copy>
+        </assign>
+        <reply name="ReplyFindByPostcode" partnerLink="Customer" operation="FindByPostcode" portType="ns0:PostcodeAnywhereServiceSoap" variable="FindByPostcodeOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeLocal/src/getCityByPostCodeLocal"/>
+    </sequence>
+</process>

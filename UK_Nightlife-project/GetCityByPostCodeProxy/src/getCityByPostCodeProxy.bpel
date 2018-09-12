@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="getCityByPostCodeProxy"
+    targetNamespace="http://enterprise.netbeans.org/bpel/GetCityByPostCodeProxy/getCityByPostCodeProxy"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/GetCityByPostCodeProxy/getCityByPostCodeProxy"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:ns0="http://www.reallymoving.com/" xmlns:ns1="http://services.postcodeanywhere.co.uk/">
+    <import namespace="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" location="getCityByPostCodeProxy.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" location="PostcodeAnywhere.asmxWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://www.reallymoving.com/" location="http://www.reallymoving.com/API/PostcodeAnywhere.asmx?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" location="getCityByPostCodeCallback.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="GetCityByPostCode" xmlns:tns="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" partnerLinkType="tns:PostcodeAnywhereServiceSoapLinkType" partnerRole="PostcodeAnywhereServiceSoapRole"/>
+        <partnerLink name="Callback" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" partnerLinkType="tns:getCityByPostCodeCallback" partnerRole="getCityByPostCodeCallbackPortTypeRole"/>
+        <partnerLink name="Customer" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" partnerLinkType="tns:getCityByPostCodeProxy" myRole="getCityByPostCodeProxyPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="GetCityByPostCodeCallbackOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" messageType="tns:getCityByPostCodeCallbackOperationRequest"/>
+        <variable name="FindByPostcodeOut" xmlns:tns="http://www.reallymoving.com/" messageType="tns:FindByPostcodeSoapOut"/>
+        <variable name="FindByPostcodeIn" xmlns:tns="http://www.reallymoving.com/" messageType="tns:FindByPostcodeSoapIn"/>
+        <variable name="GetCityByPostCodeProxyOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" messageType="tns:getCityByPostCodeProxyOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="ReceiveCustomer" createInstance="yes" partnerLink="Customer" operation="getCityByPostCodeProxyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" portType="tns:getCityByPostCodeProxyPortType" variable="GetCityByPostCodeProxyOperationIn"/>
+        <assign name="AssignInput">
+            <copy>
+                <from variable="GetCityByPostCodeProxyOperationIn" part="postCode"/>
+                <to>$FindByPostcodeIn.parameters/ns0:postcode</to>
+            </copy>
+        </assign>
+        <invoke name="InvokeGetCityByPostCode" partnerLink="GetCityByPostCode" operation="FindByPostcode" xmlns:tns="http://www.reallymoving.com/" portType="tns:PostcodeAnywhereServiceSoap" inputVariable="FindByPostcodeIn" outputVariable="FindByPostcodeOut"/>
+        <if name="IfOutput">
+            <condition>string-length($FindByPostcodeOut.parameters/ns0:FindByPostcodeResult) = 0</condition>
+            <assign name="AssignInvalidOutput">
+                <copy>
+                        <from variable="GetCityByPostCodeProxyOperationIn" part="ID"/>
+                            <to variable="GetCityByPostCodeCallbackOperationIn" part="ID"/>
+                    </copy>
+                <copy>
+                    <from>'-'</from>
+                    <to variable="GetCityByPostCodeCallbackOperationIn" part="city"/>
+                </copy>
+            </assign>
+            <else>
+                <assign name="AssignValidOutput">
+                    <copy>
+                        <from>$FindByPostcodeOut.parameters/ns0:FindByPostcodeResult/ns0:PostcodeAnywhere_Interactive_FindByPostcode_v1_00_Results/ns1:Place</from>
+                        <to variable="GetCityByPostCodeCallbackOperationIn" part="city"/>
+                    </copy>
+                    <copy>
+                        <from variable="GetCityByPostCodeProxyOperationIn" part="ID"/>
+                        <to variable="GetCityByPostCodeCallbackOperationIn" part="ID"/>
+                    </copy>
+                </assign>
+            </else>
+        </if>
+        <invoke name="InvokeCallback" partnerLink="Callback" operation="getCityByPostCodeCallbackOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" portType="tns:getCityByPostCodeCallbackPortType" inputVariable="GetCityByPostCodeCallbackOperationIn"/>
+    </sequence>
+</process>

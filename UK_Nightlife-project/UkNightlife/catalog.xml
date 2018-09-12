@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/patrikrosini/NetBeansProjects/GetCityByPostCodeLocal/src/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl" uri="src/PostcodeAnywhere.asmx.wsdl"/>
+    <system systemId="http://schemas.xmlsoap.org/ws/2004/08/addressing/" uri="src/schemas.xmlsoap.org/ws/2004/08/addressing/index.xsd"/>
+    <system systemId="http://www.reallymoving.com/API/PostcodeAnywhere.asmx?WSDL" uri="src/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl"/>
+    <nextCatalog catalog="nbproject/private/retriever/catalog.xml"/>
+    <system systemId="http://docs.oasis-open.org/wsbpel/2.0/CS01/serviceref/" uri="src/docs.oasis-open.org/wsbpel/2.0/cs01/serviceref/index.xml"/>
+</catalog>

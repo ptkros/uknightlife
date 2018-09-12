@@ -1,0 +1,186 @@
+
+
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ 
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" /><meta http-equiv="Content-Style-Type" content="text/css" />
+	<link rel="stylesheet" type="text/css" href="/styles/main-1-0.css" /><link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<!--[if lte IE 6]>
+	<style type="text/css">
+		img {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',src='/images/blank.gif'); padding-top: 0px; }
+	</style>
+	<![endif]-->
+    <style type="text/css">
+        .stats {width:100%; padding: 10px}
+        .stats TH {font-size:16pt; font-weight: normal}
+        .stats TD {font-size:16pt; font-weight: normal}
+    </style>
+    <title>
+	    Postcode Anywhere Platform
+    </title>
+</head>
+ 
+<body>
+
+	<form method="post" action="" id="Form2">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTM5NTkzMjA5Ng8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgICAQ9kFgQCAw9kFgJmD2QWGAIBDw8WAh4EVGV4dAUFMTUuOCVkZAIDDw8WAh8BBQUxMi43JWRkAgUPDxYCHwEFBTEyLjklZGQCBw8PFgIfAQUEMTNtc2RkAgkPDxYCHwEFBDE0bXNkZAILDw8WAh8BBQQxOW1zZGQCDQ8PFgIfAQUFMjYuMyVkZAIPDw8WAh8BBQUxNy4xJWRkAhEPDxYCHwEFBTE1LjMlZGQCEw8PFgIfAQUEMTZtc2RkAhUPDxYCHwEFBDE1bXNkZAIXDw8WAh8BBQQxNG1zZGQCBA9kFgJmD2QWBAIBDw8WAh8BBRNNYXIgMTggMjAxNSAgNjowMlBNZGQCAw8PFgIfAQUCNjBkZGTgPZtQ2Pxlyq0g5YTcMdNbVmBkJQ==" />
+
+
+<script src="/ScriptResource.axd?d=UT02tnpEtvR8C1WICF9or12_ZIGjNIOBLMpq8OyQYN545_q_iaX2O_EbGlYtsdmQnrEFFfWhy4LHwRRV6hfAfk6xaAjujSesgq0vSvtw9ZrTCaTVQZxKlzhFqzQQTL72ZDKp7St_Hsng5DsUzw5L4-VCKTY1&amp;t=7e632e9f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=xrVodnC74AFQkC4wE1sR_G-ssnQqDnhOs-6qmm5JufWv5_avuhh_qiYddynNDpvj1XHX0Vyb6NQCNtmvSOwCS_86qUhd_ao-SDy0sj14JCT1v03w-kAAv_gFAbzrSJZL0XvDJ6UBG5YDD2a5yu5ZVJGtk6E1&amp;t=7e632e9f" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+ 
+ 		<div id="wrapper" class="wrapper_std_sm_INT">
+ 		
+			<div id="page_content">
+				
+				<div id="div_header" style="height: 210px;">
+									
+					<div id="menu_strip">
+					
+						<a href="http://www.postcodeanywhere.co.uk/" style="float: left;"><img src="/images/common/banner_logo.png" width="189" height="21" style="margin-top: 4px;" alt="Postcode Anywhere - the address management web service" border="0" class="pngfix" /></a>
+												
+						<ul id="main_menu">
+							<li class="main_item"><a class="main homeicon" href="http://www.postcodeanywhere.co.uk/" title="Postcode Anywhere Home Page"></a></li>
+							<li class="last"><a class="main" href="http://www.postcodeanywhere.co.uk/support/webservices.aspx">Web Services</a></li>
+						</ul>
+						
+					</div>
+					
+					<div class="clear h0"></div>
+					
+					<div id="div_banner">
+			
+			            <div class="clear h30"></div>
+    			        
+			            <div class="col one" style="width: 980px; height: 110px; margin: 0; padding: 0; overflow: hidden;">
+				            <img src="/images/dynamic/heading/True.png" width="14" height="55" alt="" title="" />
+			            </div>
+    					
+				    </div>
+    				
+			    </div>
+				
+			    <div id="div_main">
+
+                    <div style="text-align:center">
+                        <h1>Postcode Anywhere Platform Server<br /><br />WEB-2-2<br /><br /></h1>
+                    </div>
+                    <span id="timer1" style="display:none;"></span>
+                                    <span id="timer2" style="display:none;"></span>
+                    
+                                <div id="UpdatePanel1">
+	
+                    <div>
+                     
+                        <div style="width:445px; float:left; border: solid 2px #aaaaaa; padding:10px; margin: 10px">
+                    
+                            <div style="text-align:center"><h2>Site 1<br />194.75.186.200</h2></div>
+                           
+                            <table class="stats">
+                                
+                                <tr>
+                                    <th align="center">WEB-1-1</th>
+                                    <th align="center">WEB-1-2</th>
+                                    <th align="center">WEB-1-3</th>
+                                </tr>
+                                <tr>
+                                    <td align="center"><span id="load11">15.8%</span></td>
+                                    <td align="center"><span id="load12">12.7%</span></td>
+                                    <td align="center"><span id="load13">12.9%</span></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><span id="speed11">13ms</span></td>
+                                    <td align="center"><span id="speed12">14ms</span></td>
+                                    <td align="center"><span id="speed13">19ms</span></td>
+                                </tr>
+                                
+                            </table>
+
+                        </div>                    
+                   
+
+                        <div style="width:445px; float:left; border: solid 2px #aaaaaa; padding:10px; margin: 10px">
+                    
+                            <div style="text-align:center"><h2>Site 2<br />217.10.139.200</h2></div>
+
+                            <table class="stats">
+                                <tr>
+                                    <th align="center">WEB-2-1</th>
+                                    <th align="center">WEB-2-2</th>
+                                    <th align="center">WEB-2-3</th>
+                                </tr>
+                                <tr>
+                                    <td align="center"><span id="load21">26.3%</span></td>
+                                    <td align="center"><span id="load22">17.1%</span></td>
+                                    <td align="center"><span id="load23">15.3%</span></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><span id="speed21">16ms</span></td>
+                                    <td align="center"><span id="speed22">15ms</span></td>
+                                    <td align="center"><span id="speed23">14ms</span></td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                        
+                    </div>
+    			
+</div>
+				    <div class="clear h0"></div>
+                    <div id="UpdatePanel2">
+	
+                    <div style="text-align:center">
+                        * Statistics updated <span id="capturedOn">Mar 18 2015  6:02PM</span><br />
+                        Status Update in <span id="countDown">60</span>
+                    </div>
+</div>
+			    </div>
+    			
+			    <div class="clear h0"></div>
+    				     
+		    </div>
+    		
+		    <div class="push"></div>
+    		
+		    <div class="clear h0"></div>
+    		
+	    </div>
+		
+	    <div class="clear h30"></div>
+    		
+	    <div id="wrapper_footer">
+    		
+		    <div id="footer_content">
+    			
+			    <p style="padding-top:30px;">
+				    &copy;Postcode Anywhere (Holdings) Ltd, 2015. Postcode Anywhere is a trademark of Postcode Anywhere (Holdings) Ltd. Postcode Anywhere is also the trading name for Postcode Anywhere (Europe) Ltd, which is a licensed reseller of: the Royal Mail's Postcode Address File (PAF®) database; as well as various other data licensors' databases. All features & specifications are correct at the time of printing (March 2010) but subject to change without notice. Company registration number 03347926.
+				    <br />Request received 18/03/2015 18:02:30 from 79.55.176.145 and served by WEB-2-2.
+			    </p>
+    			
+			    <div class="clear h0"></div>
+    			
+		    </div>
+    		
+	    </div>
+		
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.UI._Timer, {"enabled":true,"interval":1000,"uniqueID":"timer1"}, null, null, $get("timer1"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._Timer, {"enabled":true,"interval":60000,"uniqueID":"timer2"}, null, null, $get("timer2"));
+});
+//]]>
+</script>
+</form>
+	
+</body>
+ 
+</html>

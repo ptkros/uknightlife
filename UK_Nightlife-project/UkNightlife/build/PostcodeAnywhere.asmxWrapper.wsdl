@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PostcodeAnywhere.asmxWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/PostcodeAnywhere.asmxWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="http://www.reallymoving.com/">
+    <import location="http://www.reallymoving.com/API/PostcodeAnywhere.asmx?WSDL" namespace="http://www.reallymoving.com/"/>
+    <plnk:partnerLinkType name="PostcodeAnywhereServiceSoapLinkType">
+        <plnk:role name="PostcodeAnywhereServiceSoapRole" portType="ns:PostcodeAnywhereServiceSoap"/>
+    </plnk:partnerLinkType>
+</definitions>

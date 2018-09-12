@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://www.reallymoving.com/API/PostcodeAnywhere.asmx?WSDL" uri="../www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl"/>
+    <system systemId="http://schemas.xmlsoap.org/wsdl/mime/" uri="src/_references/_relative/nbproject/private/retriever/schemas.xmlsoap.org/wsdl/mime/index.xsd"/>
+    <system systemId="http://schemas.xmlsoap.org/soap/encoding/" uri="src/_references/_relative/nbproject/private/retriever/schemas.xmlsoap.org/soap/encoding/index.xsd"/>
+    <system systemId="http://services.postcodeanywhere.co.uk/" uri="src/_references/_relative/nbproject/private/retriever/services.postcodeanywhere.co.uk/index"/>
+</catalog>

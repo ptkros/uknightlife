@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" xmlns:ns2="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" xmlns:ns3="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" xmlns:ns4="http://j2ee.netbeans.org/wsdl/UkNightlife/src/getNightlifeEventList" xmlns:ns5="http://www.reallymoving.com/" xmlns:ns6="http://enterprise.netbeans.org/bpel/UkNightlife/ukNightlife" xmlns:xlink="http://www.w3.org/2000/xlink">
+    <endpoints>
+        <endpoint endpoint-name="getCityByPostCodeProxyPort" interface-name="ns1:getCityByPostCodeProxyPortType" name="endpoint1" service-name="ns1:getCityByPostCodeProxyService"/>
+        <endpoint endpoint-name="ukNightlifePort" interface-name="ns2:Customer" name="endpoint2" service-name="ns2:ukNightlifeService"/>
+        <endpoint endpoint-name="getCityByPostCodeCallbackPort" interface-name="ns3:getCityByPostCodeCallbackPortType" name="endpoint3" service-name="ns3:getCityByPostCodeCallbackService"/>
+        <endpoint endpoint-name="RestOutboundWSDL_OutboundPort" interface-name="ns4:RestOutboundPortType" name="endpoint4" service-name="ns4:RestOutboundService"/>
+        <endpoint endpoint-name="PostcodeAnywhereServiceSoap12" interface-name="ns5:PostcodeAnywhereServiceSoap" name="endpoint5" service-name="ns5:PostcodeAnywhereService"/>
+        <endpoint endpoint-name="PostcodeAnywhereServiceSoap" interface-name="ns5:PostcodeAnywhereServiceSoap" name="endpoint6" service-name="ns5:PostcodeAnywhereService"/>
+        <endpoint display-name="Customer" endpoint-name="getListRole_myRole" file-path="ukNightlife.bpel" interface-name="ns2:Customer" name="endpoint7" process-name="ukNightlife" service-name="ns6:Customer"/>
+        <endpoint display-name="GetCityByPostCodeCallback" endpoint-name="getCityByPostCodeCallbackPortTypeRole_myRole" file-path="ukNightlife.bpel" interface-name="ns3:getCityByPostCodeCallbackPortType" name="endpoint8" process-name="ukNightlife" service-name="ns6:GetCityByPostCodeCallback"/>
+        <endpoint display-name="GetCityByPostCode" endpoint-name="getCityByPostCodeProxyPortTypeRole_partnerRole" file-path="ukNightlife.bpel" interface-name="ns1:getCityByPostCodeProxyPortType" name="endpoint9" process-name="ukNightlife" service-name="ns6:GetCityByPostCode"/>
+        <endpoint display-name="GetNightlifeEventList" endpoint-name="RestOutboundPortTypeRole_partnerRole" file-path="ukNightlife.bpel" interface-name="ns4:RestOutboundPortType" name="endpoint10" process-name="ukNightlife" service-name="ns6:GetNightlifeEventList"/>
+        <endpoint display-name="GetCityByPostCodeLocal" endpoint-name="PostcodeAnywhereServiceSoapRole_partnerRole" file-path="ukNightlife.bpel" interface-name="ns5:PostcodeAnywhereServiceSoap" name="endpoint11" process-name="ukNightlife" service-name="ns6:GetCityByPostCodeLocal"/>
+    </endpoints>
+    <service-units>
+        <service-engine-service-unit artifacts-zip="UkNightlife.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="UkNightlifeCA-UkNightlife" unit-name="UkNightlife" unknown="false" x="141" y="97">
+            <provides endpoint="endpoint7"/>
+            <provides endpoint="endpoint8"/>
+            <consumes endpoint="endpoint9"/>
+            <consumes endpoint="endpoint10"/>
+            <consumes endpoint="endpoint11"/>
+        </service-engine-service-unit>
+        <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="UkNightlifeCA-sun-http-binding" unit-name="sun-http-binding">
+            <ports>
+                <port x="67" y="362">
+                    <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeCallback.wsdl#xpointer(/definitions/service[@name='getCityByPostCodeCallbackService']/port[@name='getCityByPostCodeCallbackPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint3"/>
+                    <provides endpoint="endpoint3"/>
+                </port>
+                <port x="67" y="285">
+                    <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeProxy.wsdl#xpointer(/definitions/service[@name='getCityByPostCodeProxyService']/port[@name='getCityByPostCodeProxyPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint1"/>
+                    <provides endpoint="endpoint1"/>
+                </port>
+                <port x="67" y="208">
+                    <link xlink:href="../jbiServiceUnits/UkNightlife/ukNightlife.wsdl#xpointer(/definitions/service[@name='ukNightlifeService']/port[@name='ukNightlifePort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint2"/>
+                    <provides endpoint="endpoint2"/>
+                </port>
+                <port bindingType="soap" state="deleted" x="67" y="37">
+                    <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/service[@name='PostcodeAnywhereService']/port[@name='PostcodeAnywhereServiceSoap'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint6"/>
+                    <provides endpoint="endpoint6"/>
+                </port>
+                <port bindingType="soap12" x="67" y="37">
+                    <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/service[@name='PostcodeAnywhereService']/port[@name='PostcodeAnywhereServiceSoap12'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint5"/>
+                    <provides endpoint="endpoint5"/>
+                </port>
+            </ports>
+        </binding-component-service-unit>
+        <binding-component-service-unit artifacts-zip="sun-rest-binding.jar" component-name="sun-rest-binding" description="Represents this Service Unit" name="UkNightlifeCA-sun-rest-binding" unit-name="sun-rest-binding">
+            <ports>
+                <port x="67" y="131">
+                    <link xlink:href="../jbiServiceUnits/UkNightlife/getNightlifeEventList.wsdl#xpointer(/definitions/service[@name='RestOutboundService']/port[@name='RestOutboundWSDL_OutboundPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint4"/>
+                    <provides endpoint="endpoint4"/>
+                </port>
+            </ports>
+        </binding-component-service-unit>
+    </service-units>
+    <connections>
+        <connection consumer="endpoint10" provider="endpoint4" state="unchanged"/>
+        <connection consumer="endpoint9" provider="endpoint1" state="unchanged"/>
+        <connection consumer="endpoint2" provider="endpoint7" state="unchanged"/>
+        <connection consumer="endpoint3" provider="endpoint8" state="unchanged"/>
+        <connection consumer="endpoint11" provider="endpoint5" state="new"/>
+    </connections>
+    <porttypes>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeCallback.wsdl#xpointer(/definitions/portType[@name='getCityByPostCodeCallbackPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeProxy.wsdl#xpointer(/definitions/portType[@name='getCityByPostCodeProxyPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getNightlifeEventList.wsdl#xpointer(/definitions/portType[@name='RestOutboundPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/ukNightlife.wsdl#xpointer(/definitions/portType[@name='Customer'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/portType[@name='PostcodeAnywhereServiceSoap'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/portType[@name='PostcodeAnywhereServiceHttpGet'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/portType[@name='PostcodeAnywhereServiceHttpPost'])" xlink:type="simple"/>
+    </porttypes>
+    <bindings>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeCallback.wsdl#xpointer(/definitions/binding[@name='getCityByPostCodeCallbackBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeProxy.wsdl#xpointer(/definitions/binding[@name='getCityByPostCodeProxyBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getNightlifeEventList.wsdl#xpointer(/definitions/binding[@name='RestOutboundBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/ukNightlife.wsdl#xpointer(/definitions/binding[@name='ukNightlifeBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/binding[@name='PostcodeAnywhereServiceSoap'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/binding[@name='PostcodeAnywhereServiceSoap12'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/binding[@name='PostcodeAnywhereServiceHttpGet'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/binding[@name='PostcodeAnywhereServiceHttpPost'])" xlink:type="simple"/>
+    </bindings>
+    <services>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeCallback.wsdl#xpointer(/definitions/service[@name='getCityByPostCodeCallbackService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getCityByPostCodeProxy.wsdl#xpointer(/definitions/service[@name='getCityByPostCodeProxyService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/getNightlifeEventList.wsdl#xpointer(/definitions/service[@name='RestOutboundService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/ukNightlife.wsdl#xpointer(/definitions/service[@name='ukNightlifeService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/UkNightlife/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl#xpointer(/definitions/service[@name='PostcodeAnywhereService'])" xlink:type="simple"/>
+    </services>
+    <regions>
+        <region name="WSDL Endpoints" width="150"/>
+        <region name="JBI Modules" width="500"/>
+        <region name="External Modules" width="200"/>
+    </regions>
+</casa>

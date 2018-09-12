@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/patrikrosini/NetBeansProjects/GetCityByPostCodeLocal/src/www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl" uri="../PostcodeAnywhere.asmx.wsdl"/>
+    <system systemId="http://schemas.xmlsoap.org/ws/2004/08/addressing/" uri="../schemas.xmlsoap.org/ws/2004/08/addressing/index.xsd"/>
+    <system systemId="http://www.reallymoving.com/API/PostcodeAnywhere.asmx?WSDL" uri="../www.reallymoving.com/API/PostcodeAnywhere.asmx.wsdl"/>
+    <system systemId="http://docs.oasis-open.org/wsbpel/2.0/CS01/serviceref/" uri="../docs.oasis-open.org/wsbpel/2.0/cs01/serviceref/index.xml"/>
+    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" uri="src/_references/_relative/nbproject/private/retriever/www.oracle.com/us/sun/index.htm"/>
+    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/NMProperty" uri="src/_references/_relative/nbproject/private/retriever/www.oracle.com/us/sun/index.htm"/>
+    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment" uri="src/_references/_relative/nbproject/private/retriever/www.oracle.com/us/sun/index.htm"/>
+    <system systemId="http://www.reallymoving.com/" uri="src/_references/_relative/nbproject/private/retriever/www.reallymoving.com/index"/>
+    <system systemId="http://schemas.xmlsoap.org/wsdl/mime/" uri="src/_references/_relative/nbproject/private/retriever/schemas.xmlsoap.org/wsdl/mime/index.xsd"/>
+    <system systemId="http://schemas.xmlsoap.org/soap/encoding/" uri="src/_references/_relative/nbproject/private/retriever/schemas.xmlsoap.org/soap/encoding/index.xsd"/>
+    <system systemId="http://services.postcodeanywhere.co.uk/" uri="src/_references/_relative/nbproject/private/retriever/services.postcodeanywhere.co.uk/index"/>
+    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions" uri="src/_references/_relative/nbproject/private/retriever/www.oracle.com/us/sun/index.htm"/>
+    <system systemId="http://schemas.xmlsoap.org/wsdl/soap/" uri="src/_references/_relative/nbproject/private/retriever/schemas.xmlsoap.org/wsdl/soap/index.xsd"/>
+    <system systemId="http://docs.oasis-open.org/wsbpel/2.0/CS01/serviceref" uri="src/_references/_relative/nbproject/private/retriever/docs.oasis-open.org/wsbpel/2.0/cs01/serviceref/index.xml"/>
+</catalog>

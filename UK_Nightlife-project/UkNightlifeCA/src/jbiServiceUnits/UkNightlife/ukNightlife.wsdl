@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ukNightlife" targetNamespace="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types/>
+    <message name="ukNightlifeOperationRequest">
+        <part name="postCode" type="xsd:string"/>
+        <part name="searchRadius" type="xsd:int"/>
+    </message>
+    <message name="ukNightlifeOperationResponse">
+        <part name="city" type="xsd:string"/>
+        <part name="nightlifeEventList" type="xsd:string"/>
+    </message>
+    <message name="ukNightlifeOperationFault">
+        <part name="ukNightlifeFault" type="xsd:string"/>
+    </message>
+    <portType name="Customer">
+        <operation name="getList">
+            <input name="input1" message="tns:ukNightlifeOperationRequest"/>
+            <output name="output1" message="tns:ukNightlifeOperationResponse"/>
+            <fault name="fault1" message="tns:ukNightlifeOperationFault"/>
+        </operation>
+    </portType>
+    <binding name="ukNightlifeBinding" type="tns:Customer">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getList">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1" use="literal" namespace="http://j2ee.netbeans.org/wsdl/UkNightlife/src/ukNightlife"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="ukNightlifeService">
+        <port name="ukNightlifePort" binding="tns:ukNightlifeBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/ukNightlifeService/ukNightlifePort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="ukNightlife">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="getListRole" portType="tns:Customer"/>
+    </plnk:partnerLinkType>
+</definitions>

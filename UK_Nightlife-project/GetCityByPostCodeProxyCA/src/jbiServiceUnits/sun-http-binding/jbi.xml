@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeProxy" xmlns:ns2="http://enterprise.netbeans.org/bpel/GetCityByPostCodeProxy/getCityByPostCodeProxy" xmlns:ns3="http://j2ee.netbeans.org/wsdl/GetCityByPostCodeProxy/src/getCityByPostCodeCallback" xmlns:ns4="http://www.reallymoving.com/" version="1.0">
+    <services binding-component="true">
+        <provides endpoint-name="getCityByPostCodeCallbackPort" interface-name="ns3:getCityByPostCodeCallbackPortType" service-name="ns3:getCityByPostCodeCallbackService"/>
+        <provides endpoint-name="PostcodeAnywhereServiceSoap12" interface-name="ns4:PostcodeAnywhereServiceSoap" service-name="ns4:PostcodeAnywhereService"/>
+        <consumes endpoint-name="getCityByPostCodeProxyPort" interface-name="ns1:getCityByPostCodeProxyPortType" service-name="ns1:getCityByPostCodeProxyService"/>
+    </services>
+</jbi>
