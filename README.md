@@ -16,5 +16,8 @@ A brief description of the files/folders listed above:
  In order to run the project you have to follow the steps below:
  
  1. Lunch OpenESB
- 2. From the menu, File > Open Project.
- 3. Search the unzipped UK_Nightlife-project folder and select all the folders that it contains and click Open Project.
+ 2. From the menu, File > Open Project
+ 3. Search the unzipped uknightlife-master folder and select all the folders that it contains and click Open Project
+ 4. In the Project tab right click and select Clean and Build for every projects starting from those without * *CA* in the name and subsequently to those with * *CA* in the name
+ 5. Right click and select Deploy for all the projects with * *CA* in the name
+ 6. Run the test cases located in the *UkNightlifeCA* > *Test*
