@@ -1,0 +1,1 @@
+The project is an implementation of a Web Service to provide the list of currently week nightlife events in United Kingdom, geolocated from postcode, within a chosen search radius area (expressed in Km).
