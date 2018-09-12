@@ -1,6 +1,6 @@
 The project is an implementation of a Web Service to provide the list of currently week nightlife events in United Kingdom, geolocated from postcode, within a chosen search radius area (expressed in Km). Detailed information can be found [here](https://drive.google.com/file/d/1ipDawFD93zCwDzfc2OdotbiCFsWiTWgg/view).
 
-### Source code guide:
+### Source code guide
 
 A brief description of the files/folders listed above:
   * *UK_Nightlife-BPMN.bpm* file containing the modeled BPMN of the project; It can be opened with [Bizagi Modeler](https://www.bizagi.com/uk/products/bpm-suite/modeler);
@@ -10,3 +10,11 @@ A brief description of the files/folders listed above:
     * *GetCityByPostCodeProxy* folder containing the BPEL implementation of the proxy service and GetCityByPostCodeCA folder that contains the associated composite application to be deployed;
     * *GetCityByPostCodeLocal* folder containing the BPEL implementation of the SOAP local dummy service and *GetCityByPostCodeLocalCA* folder that contains the relative composite application to be deployed;
  * *UK_Nightlife-workflow_net.pnml* file containing the modeled workflow net of the project.
+ 
+ ### Deployment guide
+ 
+ In order to run the project you have to follow the steps below:
+ 
+ 1. Lunch OpenESB
+ 2. From the menu, File > Open Project.
+ 3. Search the unzipped UK_Nightlife-project folder and select all the folders that it contains and click Open Project.
